@@ -1,11 +1,15 @@
 import React from 'react';
 import PhonePage from './PhonePage';
+import Header from '../components/common/Header';
 
 const App = () => {
   return (
-    <div className='container-fluid'>
-      <PhonePage />
-    </div>
+    <>
+      <Header />
+      <div className=''>
+        <PhonePage />
+      </div>
+    </>
   );
 };
 

@@ -1,0 +1,11 @@
+.card {
+  margin: 10px 0 0 10px;
+}
+
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  max-width: 288px;
+  height: 330px;
+  overflow: hidden;
+}
