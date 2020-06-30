@@ -1,0 +1,1 @@
+export const LOAD_PHONE_SUCCESS = 'LOAD_PHONE_SUCCESS';

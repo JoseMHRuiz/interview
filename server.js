@@ -1,8 +1,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
+
 const app = express();
 
 const phones = require('./api/phones.json');
+
+// Middleware Setup
+let whitelist = ['http://localhost:3000'];
+let corsOptions = {
+  origin: function(origin, callback) {
+    let originIsWhitelisted = whitelist.indexOf(origin) !== -1;
+    callback(null, originIsWhitelisted);
+  },
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
