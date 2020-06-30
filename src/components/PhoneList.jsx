@@ -37,7 +37,7 @@ class PhoneList extends React.Component {
                     <Card.Text>{phone.price} €</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Link to={'/phone/' + phone.name}>More details</Link>
+                    <Link to={'/phone/' + phone.id}>More details</Link>
                   </Card.Footer>
                 </Card>
               );
