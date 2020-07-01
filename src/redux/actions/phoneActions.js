@@ -16,10 +16,7 @@ export function showPhones() {
 export function showPhone(id) {
   return (dispatch, getState) => {
     axios.get('http://localhost:3001/phones').then(response => {
-      console.log(id);
       let _phone = response.data.phones;
-      console.log(_phone.find(phone => phone.id === +id));
-      console.log(_phone);
       dispatch({
         type: types.LOAD_PHONE,
         payload: _phone.find(phone => phone.id === +id)

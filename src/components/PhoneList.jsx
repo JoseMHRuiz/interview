@@ -21,7 +21,7 @@ class PhoneList extends React.Component {
           <div className='row'>
             {phones.map(phone => {
               return (
-                <Card style={{ width: '18rem' }}>
+                <Card key={phone.id} style={{ width: '18rem' }}>
                   <Card.Img
                     variant='top'
                     src={require(`../../api/images/${phone.imageFileName}`)}
