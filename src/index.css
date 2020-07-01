@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.spinner-grow {
+  margin-left: 45%;
+  margin-top: 5%;
+  padding: 10%;
+}

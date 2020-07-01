@@ -1,5 +1,4 @@
 import * as types from './actionTypes';
-// import * as phoneApi from '../../api/phoneApi';
 import axios from 'axios';
 
 export function showPhones() {

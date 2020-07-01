@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { showPhones } from '../redux/actions/phoneActions';
-import Card from 'react-bootstrap/Card';
-import './PhoneList.css';
 import { Link } from 'react-router-dom';
+import { showPhones } from '../redux/actions/phoneActions';
+
+import { Card, Spinner } from 'react-bootstrap';
+import './PhoneList.css';
 
 class PhoneList extends React.Component {
   componentDidMount() {
@@ -43,7 +44,7 @@ class PhoneList extends React.Component {
         </div>
       );
     } else {
-      return <div>Loading</div>;
+      return <Spinner animation='grow' />;
     }
   }
 }
