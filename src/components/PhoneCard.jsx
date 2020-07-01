@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 import { showPhone, showPhones } from '../redux/actions/phoneActions';
+import { Link } from 'react-router-dom';
 
 class PhoneCard extends React.Component {
   componentWillMount() {
@@ -31,6 +32,9 @@ class PhoneCard extends React.Component {
             <Card.Title>{phone.name}</Card.Title>
             <Card.Text>{phone.description}</Card.Text>
           </Card.Body>
+          <Card.Footer>
+            <Link to={'/'}>Back</Link>
+          </Card.Footer>
         </Card>
       );
     } else {
