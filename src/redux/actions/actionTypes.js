@@ -1,1 +1,2 @@
-export const LOAD_PHONE_SUCCESS = 'LOAD_PHONE_SUCCESS';
+export const LOAD_PHONES = 'LOAD_PHONES';
+export const LOAD_PHONE = 'LOAD_PHONE';

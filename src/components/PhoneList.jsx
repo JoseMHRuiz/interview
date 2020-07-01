@@ -8,21 +8,18 @@ import { Link } from 'react-router-dom';
 class PhoneList extends React.Component {
   componentDidMount() {
     const { phones, showPhones } = this.props;
-    console.log(phones);
-    console.log(this.props);
-    if (phones.phone.list.length === 0) {
+    if (phones.length === 0) {
       showPhones();
     }
   }
 
   render() {
-    const { list } = this.props.phones.phone;
-    console.log(list.phones);
-    if (list.phones) {
+    const { phones } = this.props.phones;
+    if (phones) {
       return (
         <div className='container-fluid'>
           <div className='row'>
-            {list.phones.map(phone => {
+            {phones.map(phone => {
               return (
                 <Card style={{ width: '18rem' }}>
                   <Card.Img
@@ -37,7 +34,7 @@ class PhoneList extends React.Component {
                     <Card.Text>{phone.price} €</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Link to={'/phone/' + phone.id}>More details</Link>
+                    <Link to={'/phone/' + phone.id}>Show More</Link>
                   </Card.Footer>
                 </Card>
               );
@@ -52,7 +49,7 @@ class PhoneList extends React.Component {
 }
 function mapStateToProps(state) {
   return {
-    phones: state
+    ...state
   };
 }
 

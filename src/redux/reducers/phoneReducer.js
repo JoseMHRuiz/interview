@@ -1,10 +1,22 @@
 import * as types from '../actions/actionTypes';
-import initialState from './initialState';
 
-export function showPhones(state = initialState, action) {
+const initialState = {
+  phones: [],
+  phone: []
+};
+
+export function showPhones(state = initialState.phones, action) {
   switch (action.type) {
-    case types.LOAD_PHONE_SUCCESS:
-      return Object.assign({}, state, { list: action.payload });
+    case types.LOAD_PHONES:
+      return Object.assign({}, state, { ...action.payload });
+    default:
+      return state;
+  }
+}
+export function showPhone(state = initialState.phone, action) {
+  switch (action.type) {
+    case types.LOAD_PHONE:
+      return Object.assign({}, state, { ...action.payload });
     default:
       return state;
   }

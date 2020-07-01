@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PhonePage from './PhonePage';
+import PhoneCard from './PhoneCard';
 import Header from '../components/common/Header';
 
 const App = () => {
@@ -9,7 +10,7 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path='/' component={PhonePage} />
-        {/* <Route /> */}
+        <Route path='/phone/:id' component={PhoneCard} />
       </Switch>
     </>
   );
