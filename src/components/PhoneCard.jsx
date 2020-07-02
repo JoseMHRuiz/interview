@@ -57,7 +57,11 @@ class PhoneCard extends React.Component {
         </Container>
       );
     } else {
-      return <Spinner animation='grow' />;
+      return (
+        <Container>
+          <Spinner animation='grow' />
+        </Container>
+      );
     }
   }
 }
