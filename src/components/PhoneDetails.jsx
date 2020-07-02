@@ -10,43 +10,44 @@ import './PhoneCard.css';
 const PhoneCard = props => {
   useEffect(() => {
     const { data, showPhone } = props;
-    if (data.id !== +props.match.params.id) {
+    console.log(props);
+    if (data.phone.id !== +props.match.params.id) {
       showPhone(props.match.params.id);
     }
   });
-  const { data } = props;
-  if (data.id === +props.match.params.id) {
+  const { phone } = props.data;
+  if (phone.id === +props.match.params.id) {
     return (
       <Container className='card-container-phone' fluid>
         <Row>
           <Col>
             <Image
-              src={require('../../api/images/' + data.imageFileName)}
+              src={require('../../api/images/' + phone.imageFileName)}
               fluid
             />
           </Col>
           <Col>
-            <h1>{data.name}</h1>
-            <p>{data.description}</p>
+            <h1>{phone.name}</h1>
+            <p>{phone.description}</p>
           </Col>
           <Col>
             <Table hover>
               <tbody>
                 <tr>
                   <td>Color</td>
-                  <td>{_.capitalize(data.color)}</td>
+                  <td>{_.capitalize(phone.color)}</td>
                 </tr>
                 <tr>
                   <td>Screen</td>
-                  <td>{data.screen}</td>
+                  <td>{phone.screen}</td>
                 </tr>
                 <tr>
                   <td>Processor</td>
-                  <td>{data.processor}</td>
+                  <td>{phone.processor}</td>
                 </tr>
                 <tr>
                   <td>Ram</td>
-                  <td>{data.ram} GB</td>
+                  <td>{phone.ram} GB</td>
                 </tr>
               </tbody>
             </Table>
