@@ -1,53 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { showPhones } from '../redux/actions/phoneActions';
 
-import { Card, Spinner } from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 import './PhoneList.css';
+import PhoneCard from './PhoneCard';
 
-class PhoneList extends React.Component {
-  componentDidMount() {
-    const { phones, showPhones } = this.props;
-    if (phones.length === 0) {
+const PhoneList = props => {
+  useEffect(() => {
+    const { data, showPhones } = props;
+    if (data.phones.length === 0) {
       showPhones();
     }
+  }, [props]);
+  console.log(props);
+  const { phones } = props.data;
+  if (phones.length > 1) {
+    return <PhoneCard phones={phones} />;
+  } else {
+    return <Spinner animation='grow' />;
   }
-
-  render() {
-    const { phones } = this.props.phones;
-    if (phones) {
-      return (
-        <div className='container-fluid'>
-          <div className='row'>
-            {phones.map(phone => {
-              return (
-                <Card key={phone.id} style={{ width: '18rem' }}>
-                  <Card.Img
-                    variant='top'
-                    src={require(`../../api/images/${phone.imageFileName}`)}
-                  />
-                  <Card.Body>
-                    <Card.Title>{phone.name}</Card.Title>
-                    <Card.Subtitle className='mb-2 text-muted'>
-                      {phone.manufacturer}
-                    </Card.Subtitle>
-                    <Card.Text>{phone.price} €</Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Link to={'/phone/' + phone.id}>Show More</Link>
-                  </Card.Footer>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      );
-    } else {
-      return <Spinner animation='grow' />;
-    }
-  }
-}
+};
 function mapStateToProps(state) {
   return {
     ...state

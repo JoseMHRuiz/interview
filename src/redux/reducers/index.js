@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-import { showPhones, showPhone } from './phoneReducer';
+import { getPhones } from './phoneReducer';
 
 const rootReducer = combineReducers({
-  phones: showPhones,
-  phone: showPhone
+  data: getPhones
 });
 
 export default rootReducer;

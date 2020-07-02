@@ -1,74 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { showPhone } from '../redux/actions/phoneActions';
 
-import { Container, Row, Col, Image, Table, Spinner } from 'react-bootstrap';
-import _ from 'lodash';
-import './PhoneCard.css';
+import { Card } from 'react-bootstrap';
 
-class PhoneCard extends React.Component {
-  componentDidMount() {
-    const { phone, showPhone } = this.props;
-    if (phone.length !== 1) {
-      showPhone(this.props.match.params.id);
-    }
-  }
-  render() {
-    const { phone } = this.props;
-    if (phone.id === +this.props.match.params.id) {
-      return (
-        <Container className='card-container-phone' fluid>
-          <Row>
-            <Col>
-              <Image
-                src={require('../../api/images/' + phone.imageFileName)}
-                fluid
+const PhoneCard = props => {
+  return (
+    <div className='container-fluid'>
+      <div className='row'>
+        {props.phones.map(phone => {
+          return (
+            <Card key={phone.id} style={{ width: '18rem' }}>
+              <Card.Img
+                variant='top'
+                src={require(`../../api/images/${phone.imageFileName}`)}
               />
-            </Col>
-            <Col>
-              <h1>{phone.name}</h1>
-              <p>{phone.description}</p>
-            </Col>
-            <Col>
-              <Table hover>
-                <tbody>
-                  <tr>
-                    <td>Color</td>
-                    <td>{_.capitalize(phone.color)}</td>
-                  </tr>
-                  <tr>
-                    <td>Screen</td>
-                    <td>{phone.screen}</td>
-                  </tr>
-                  <tr>
-                    <td>Processor</td>
-                    <td>{phone.processor}</td>
-                  </tr>
-                  <tr>
-                    <td>Ram</td>
-                    <td>{phone.ram} GB</td>
-                  </tr>
-                </tbody>
-              </Table>
-              <Link to={'/'}>Back</Link>
-            </Col>
-          </Row>
-        </Container>
-      );
-    } else {
-      return (
-        <Container>
-          <Spinner animation='grow' />
-        </Container>
-      );
-    }
-  }
-}
-function mapStateToProps(state) {
-  return {
-    ...state
-  };
-}
+              <Card.Body>
+                <Card.Title>{phone.name}</Card.Title>
+                <Card.Subtitle className='mb-2 text-muted'>
+                  {phone.manufacturer}
+                </Card.Subtitle>
+                <Card.Text>{phone.price} €</Card.Text>
+              </Card.Body>
+              <Card.Footer>
+                <Link to={'/phone/' + phone.id}>Show More</Link>
+              </Card.Footer>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
-export default connect(mapStateToProps, { showPhone })(PhoneCard);
+export default PhoneCard;

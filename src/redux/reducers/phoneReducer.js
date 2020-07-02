@@ -5,18 +5,19 @@ const initialState = {
   phone: []
 };
 
-export function showPhones(state = initialState.phones, action) {
+export function getPhones(state = initialState, action) {
   switch (action.type) {
     case types.LOAD_PHONES:
-      return Object.assign({}, state, { ...action.payload });
-    default:
-      return state;
-  }
-}
-export function showPhone(state = initialState.phone, action) {
-  switch (action.type) {
+      console.log(state.phones);
+      console.log(initialState);
+      console.log(action);
+      console.log(action.payload);
+      return { ...state, ...action.payload };
     case types.LOAD_PHONE:
-      return Object.assign({}, state, { ...action.payload });
+      console.log(state.phone);
+      console.log(initialState);
+      console.log(action);
+      return { ...state, ...action.payload };
     default:
       return state;
   }
