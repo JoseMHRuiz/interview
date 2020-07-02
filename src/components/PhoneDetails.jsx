@@ -8,19 +8,13 @@ import _ from 'lodash';
 import './PhoneCard.css';
 
 const PhoneCard = props => {
-  // const { phone, setPhone } = useState();
-  console.log(props);
-
   useEffect(() => {
     const { data, showPhone } = props;
-    console.log(props);
     if (data.id !== +props.match.params.id) {
       showPhone(props.match.params.id);
-      console.log(data);
     }
   });
   const { data } = props;
-  console.log(data.id);
   if (data.id === +props.match.params.id) {
     return (
       <Container className='card-container-phone' fluid>
@@ -70,11 +64,10 @@ const PhoneCard = props => {
   }
 };
 
-function mapStateToProps(state) {
-  console.log(state);
+const mapStateToProps = state => {
   return {
     ...state
   };
-}
+};
 
 export default connect(mapStateToProps, { showPhone })(PhoneCard);

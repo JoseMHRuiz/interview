@@ -1,7 +1,7 @@
 import * as types from './actionTypes';
 import axios from 'axios';
 
-export function showPhones() {
+export const showPhones = () => {
   return (dispatch, getState) => {
     axios.get('http://localhost:3001/phones').then(response => {
       dispatch({
@@ -10,9 +10,9 @@ export function showPhones() {
       });
     });
   };
-}
+};
 
-export function showPhone(id) {
+export const showPhone = id => {
   return (dispatch, getState) => {
     axios.get('http://localhost:3001/phones').then(response => {
       let _phone = response.data.phones;
@@ -22,4 +22,4 @@ export function showPhone(id) {
       });
     });
   };
-}
+};

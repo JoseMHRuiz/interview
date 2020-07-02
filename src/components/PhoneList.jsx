@@ -13,7 +13,7 @@ const PhoneList = props => {
       showPhones();
     }
   }, [props]);
-  console.log(props);
+
   const { phones } = props.data;
   if (phones.length > 1) {
     return <PhoneCard phones={phones} />;
@@ -21,10 +21,10 @@ const PhoneList = props => {
     return <Spinner animation='grow' />;
   }
 };
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
     ...state
   };
-}
+};
 
 export default connect(mapStateToProps, { showPhones })(PhoneList);
