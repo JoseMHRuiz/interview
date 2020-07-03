@@ -10,7 +10,6 @@ import './PhoneCard.css';
 const PhoneCard = props => {
   useEffect(() => {
     const { data, showPhone } = props;
-    console.log(props);
     if (data.phone.id !== +props.match.params.id) {
       showPhone(props.match.params.id);
     }
