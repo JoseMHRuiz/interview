@@ -4,7 +4,7 @@ const cors = require('cors');
 
 const app = express();
 
-const phones = require('./api/phones.json');
+const phones = require('../api/phones.json');
 
 // Middleware Setup
 let whitelist = ['http://localhost:3000', 'http://localhost:3080'];

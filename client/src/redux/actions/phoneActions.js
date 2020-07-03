@@ -4,7 +4,6 @@ import axios from 'axios';
 export const showPhones = () => {
   return (dispatch, getState) => {
     axios.get('http://localhost:3001/phones').then(response => {
-      console.log(response.data);
       dispatch({
         type: types.LOAD_PHONES,
         payload: response.data
