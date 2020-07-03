@@ -26,7 +26,8 @@
     "redux-thunk": "2.3.0"
   },
   "scripts": {
-    "start": "run-p start:dev start:server",
+    "start": "react-scripts start",
+    "startserver": "run-p start:dev start:server",
     "start:dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

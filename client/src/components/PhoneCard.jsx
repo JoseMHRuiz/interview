@@ -12,7 +12,7 @@ const PhoneCard = props => {
             <Card key={phone.id} style={{ width: '18rem' }}>
               <Card.Img
                 variant='top'
-                src={require(`../../api/images/${phone.imageFileName}`)}
+                src={require(`../../public/images/${phone.imageFileName}`)}
               />
               <Card.Body>
                 <Card.Title>{phone.name}</Card.Title>

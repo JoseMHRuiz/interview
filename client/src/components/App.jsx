@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PhoneList from './PhoneList';
 import PhoneCard from './PhoneDetails';
-import Header from '../components/common/Header';
+import Header from './common/Header';
 
 const App = () => {
   return (

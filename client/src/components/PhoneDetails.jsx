@@ -21,7 +21,7 @@ const PhoneCard = props => {
         <Row>
           <Col>
             <Image
-              src={require('../../api/images/' + phone.imageFileName)}
+              src={require('../../public/images/' + phone.imageFileName)}
               fluid
             />
           </Col>
