@@ -40,3 +40,9 @@ The API is running in [http://localhost:3001](http://localhost:3001)
 The page will reload if you make edits.<br  />
 
 You will also see any lint errors in the console.
+
+## Test
+
+In the client directory, run:
+
+### `npm test`
