@@ -10,11 +10,11 @@ import './PhoneCard.css';
 const PhoneCard = props => {
   useEffect(() => {
     const { data, showPhone } = props;
-    if (data.phone.id !== +props.match.params.id) {
+    data.phone.id !== +props.match.params.id &&
       showPhone(props.match.params.id);
-    }
   });
   const { phone } = props.data;
+  const { error } = props.data;
   if (phone.id === +props.match.params.id) {
     return (
       <Container className='card-container-phone' fluid>
@@ -53,6 +53,12 @@ const PhoneCard = props => {
             <Link to={'/'}>Back</Link>
           </Col>
         </Row>
+      </Container>
+    );
+  } else if (error) {
+    return (
+      <Container>
+        <div>{error}</div>
       </Container>
     );
   } else {

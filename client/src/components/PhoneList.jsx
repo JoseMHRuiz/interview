@@ -9,14 +9,14 @@ import PhoneCard from './PhoneCard';
 const PhoneList = props => {
   useEffect(() => {
     const { data, showPhones } = props;
-    if (data.phones.length === 0) {
-      showPhones();
-    }
+    data.phones.length === 0 && showPhones();
   }, [props]);
-
   const { phones } = props.data;
-  if (phones.length > 1) {
+  const { error } = props.data;
+  if (phones.length > 0) {
     return <PhoneCard phones={phones} />;
+  } else if (error) {
+    return <div>{error}</div>;
   } else {
     return <Spinner animation='grow' />;
   }

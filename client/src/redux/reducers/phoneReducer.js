@@ -17,6 +17,12 @@ export const getPhones = (state = initialState, action) => {
         ...state,
         phone: action.payload
       };
+    case types.LOAD_PHONES_ERROR:
+      return {
+        ...state,
+        phone: action.payload,
+        error: 'No phone found'
+      };
     default:
       return state;
   }

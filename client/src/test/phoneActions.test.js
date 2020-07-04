@@ -44,14 +44,14 @@ describe('Test Phone Actions', () => {
       let request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: phoneList
+        response: { phones: [phoneList[0]] }
       });
     });
 
     const expectedActions = [
       {
         type: types.LOAD_PHONES,
-        payload: phoneList
+        payload: { phones: phoneList }
       }
     ];
     return store.dispatch(showPhones()).then(() => {
@@ -63,7 +63,6 @@ describe('Test Phone Actions', () => {
   it('Loads one phone correctly', done => {
     moxios.wait(function() {
       let request = moxios.requests.mostRecent();
-      let phones = [];
       request.respondWith({
         status: 200,
         response: { phones: [phoneList[0]] }
@@ -88,7 +87,7 @@ describe('Test Phone Actions', () => {
       let request = moxios.requests.mostRecent();
       request.respondWith({
         status: 200,
-        response: []
+        response: { phones: [] }
       });
     });
 
