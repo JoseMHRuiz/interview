@@ -18,7 +18,7 @@ const PhoneCard = props => {
   if (phone.id === +props.match.params.id) {
     return (
       <Container className='card-container-phone' fluid>
-        <Row>
+        <Row className='row-card-details'>
           <Col>
             <Image
               src={require('../../public/images/' + phone.imageFileName)}

@@ -1,0 +1,18 @@
+.empty-container {
+  display: block;
+  padding: 20px;
+  height: 60px;
+  width: 100%;
+  margin-top: 20px;
+}
+.footer {
+  text-align: center;
+  color: #fff;
+  background-color: #343a40;
+  padding: 20px;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}

@@ -16,3 +16,9 @@ code {
   margin-top: 5%;
   padding: 10%;
 }
+
+@media (max-width: 1200px) {
+  .row-card-details {
+    display: block;
+  }
+}

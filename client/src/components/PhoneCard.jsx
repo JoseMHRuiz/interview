@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Card } from 'react-bootstrap';
+import { Card, Row, Container } from 'react-bootstrap';
 
 const PhoneCard = props => {
   return (
-    <div className='container-fluid'>
-      <div className='row'>
+    <Container className='container-fluid'>
+      <Row className='row'>
         {props.phones.map(phone => {
           return (
-            <Card key={phone.id} style={{ width: '18rem' }}>
+            <Card key={phone.id} style={{ width: '22rem' }}>
               <Card.Img
                 variant='top'
                 src={require(`../../public/images/${phone.imageFileName}`)}
@@ -27,8 +27,8 @@ const PhoneCard = props => {
             </Card>
           );
         })}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
